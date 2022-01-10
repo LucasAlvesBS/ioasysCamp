@@ -1,2 +1,3 @@
 # ioasysCamp
-Exercícios 
+
+- Exercícios realizados no Camp. 
