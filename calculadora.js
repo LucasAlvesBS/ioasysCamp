@@ -59,14 +59,14 @@ const calculadoraJS = () => {
                 const resultadoFatorial = calculoMatematico(primeiroNumero, operadorInput);
                 console.log(`O resultado do cálculo é: ${resultadoFatorial}\n`);
                 calcInterface.question("Você quer continuar? Caso positivo, digite 'sim': ", (resposta) => {
-                    resposta === "sim" ? calculadoraJS() : calcInterface.close();
+                    resposta.toLowerCase() === "sim" ? calculadoraJS() : calcInterface.close();
                 }); 
             }
             if (operadorInput === "raiz") {
                 const resultadoRaiz = calculoMatematico(primeiroNumero, operadorInput);
                 console.log(`O resultado do cálculo é: ${resultadoRaiz}\n`);
                 calcInterface.question("Você quer continuar? Caso positivo, digite 'sim': ", (resposta) => {
-                    resposta === "sim" ? calculadoraJS() : calcInterface.close();
+                    resposta.toLowerCase() === "sim" ? calculadoraJS() : calcInterface.close();
                 }); 
             } 
 
@@ -92,7 +92,7 @@ const calculadoraJS = () => {
                 else {
                     console.log(`O resultado do cálculo é: ${resultado}\n`);
                     calcInterface.question("Você quer continuar? Caso positivo, digite 'sim': ", (resposta) => {
-                        resposta === "sim" ? calculadoraJS() : calcInterface.close();
+                        resposta.toLowerCase() === "sim" ? calculadoraJS() : calcInterface.close();
                     }); 
                 }    
             });  
