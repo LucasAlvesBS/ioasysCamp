@@ -46,7 +46,8 @@ let calculoMatematico = (primeiroInput, operacao, segundoInput) => {
     return operacoesMatematicas[operacao](primeiroInput, segundoInput);
 }
 
-console.log(`Instruções da calculadora:
+console.log(`
+Instruções da calculadora:
 
     Soma: use o símbolo '+',
     Subtração: use o símbolo '-',
