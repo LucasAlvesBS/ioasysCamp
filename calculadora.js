@@ -26,6 +26,26 @@ const operadoresValidos = [
     "!"
 ];
 
+// Cálculo realizado de acordo com a operação escolhida
+const operacoesMatematicas = {
+    '+': (primeiroInput, segundoInput) => primeiroInput + segundoInput, // Soma
+    '-': (primeiroInput, segundoInput) => primeiroInput - segundoInput, // Substração
+    '*': (primeiroInput, segundoInput) => primeiroInput * segundoInput, // Multiplicação
+    '/': (primeiroInput, segundoInput) => primeiroInput / segundoInput, // Divisão
+    '^': (primeiroInput, segundoInput) => Math.pow(primeiroInput, segundoInput), // Potência
+    '%': (primeiroInput, segundoInput) => primeiroInput % segundoInput, // Resto
+    'raiz': (primeiroInput) => Math.sqrt(primeiroInput), // Raiz quadrada
+    '!': (primeiroInput) => {
+        let fatorial = primeiroInput;
+        for (let i = primeiroInput - 1; i >= 1; i--) fatorial *= i;
+        return fatorial; // Fatorial        
+    }
+}
+
+let calculoMatematico = (primeiroInput, operacao, segundoInput) => {
+    return operacoesMatematicas[operacao](primeiroInput, segundoInput);
+}
+
 console.log(`Instruções da calculadora:
 
     Soma: use o símbolo '+',
@@ -101,22 +121,3 @@ const calculadoraJS = () => {
 }
 
 calculadoraJS();
-
-// Cálculo realizado de acordo com a operação escolhida
-let calculoMatematico = (primeiroInput, operacao, segundoInput) => {
-    if (operacao === "+") return primeiroInput + segundoInput; // Soma
-    if (operacao === "-") return primeiroInput - segundoInput; // Subtração
-    if (operacao === "*") return primeiroInput * segundoInput; // Multiplicação
-    if (operacao === "/") return primeiroInput / segundoInput; // Divisão
-    if (operacao === "^") return Math.pow(primeiroInput, segundoInput); // Potência
-    if (operacao === "%") return primeiroInput % segundoInput; // Resto
-    if (operacao === "raiz") return Math.sqrt(primeiroInput); // Raiz
-    // Fatorial
-    if (operacao === "!") {
-        let fatorial = primeiroInput;
-        for (let i = primeiroInput - 1; i >= 1; i--) {
-            fatorial *= i;   
-        }
-        return fatorial;
-    }  
-}
