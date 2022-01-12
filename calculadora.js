@@ -29,7 +29,7 @@ const operadoresValidos = [
 // Cálculo realizado de acordo com a operação escolhida
 const operacoesMatematicas = {
     '+': (primeiroInput, segundoInput) => primeiroInput + segundoInput, // Soma
-    '-': (primeiroInput, segundoInput) => primeiroInput - segundoInput, // Substração
+    '-': (primeiroInput, segundoInput) => primeiroInput - segundoInput, // Subtração
     '*': (primeiroInput, segundoInput) => primeiroInput * segundoInput, // Multiplicação
     '/': (primeiroInput, segundoInput) => primeiroInput / segundoInput, // Divisão
     '^': (primeiroInput, segundoInput) => Math.pow(primeiroInput, segundoInput), // Potência
