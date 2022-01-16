@@ -12,17 +12,17 @@
 ## Proposta do Desafio
 
 - Nesse módulo, eu criei meu próprio código hadouken no arquivo (codigo-hadouken.js) e reduzi 
-no arquivo (solucao-hadouken.js) a quantidade de IFs para realizar a validação de dados em um
+no arquivo (solucao-hadouken.js) a quantidade de IFs para realizar a validação das informações em um
 pequeno banco de dados. Este foi criado através do objeto 'Map'. 
 
 ## Como foi feito?
 
 - Primeiro, foi importado o pacote 'readline' para solicitar as informações do usuário. Então,
-Criou-se um banco de dados com 2 usuários já cadastrados, a partir do objeto 'Map' e do método 'set'. 
-Depois disso, armazenou-se todas as informações recolhidas ('nome', 'idade', 'nacionalidade', 'estado',
+criou-se um banco de dados com 2 pessoas já cadastrados por meio do objeto 'Map', usando o método 'set'. 
+Depois disso, armazenou-se todas as informações solicitadas ('nome', 'idade', 'nacionalidade', 'estado',
 'cidade', 'formacao') em um 'objeto' para que se pudesse comparar (através do JSON.stringify) com o 
-'objeto' no banco de dados. Em caso de igualdade, significa que o usuário já possui cadastro e pode 
-ser encontrado. Por fim, foi utilizado a técnica de recursão para 'loopar' o formulário caso o usuário
+'objeto' das pessoas no banco de dados. Em caso de igualdade, significa que o usuário já possui cadastro e
+pode ser encontrado. Por fim, foi utilizado a técnica de recursão para 'loopar' o formulário caso o usuário
 digite 'sim' ou 's' no final do código.
 
 Obs.: As informações podem ser preenchidas com letras maiúsculas e/ou minúsculas (foi usado o 'toLowerCase').
