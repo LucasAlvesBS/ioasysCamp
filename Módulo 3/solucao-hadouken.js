@@ -6,22 +6,22 @@ const formInterface = readline.createInterface({
 
 const bancoDeDados = new Map();
 
-bancoDeDados.set("Lucas Alves", {
-    nome: "Lucas Alves",
+bancoDeDados.set("lucas alves", {
+    nome: "lucas alves",
     idade: 27,
-    nacionalidade: "Brasileira",
-    estado: "Sergipe",
-    cidade: "Aracaju",
-    formacao: "ioasysCamp"
+    nacionalidade: "brasileira",
+    estado: "sergipe",
+    cidade: "aracaju",
+    formacao: "ioasyscamp"
 });
 
-bancoDeDados.set("Alirio dos Santos", {
-    nome: "Alirio dos Santos",
+bancoDeDados.set("alirio dos santos", {
+    nome: "alirio dos santos",
     idade: 40,
-    nacionalidade: "Brasileira",
-    estado: "Bahia",
-    cidade: "Salvador",
-    formacao: "ioasysCamp"
+    nacionalidade: "brasileira",
+    estado: "bahia",
+    cidade: "salvador",
+    formacao: "ioasyscamp"
 });
 
 const formulario = async () => {
@@ -33,7 +33,7 @@ const formulario = async () => {
     let estadoUsuario, cidadeUsuario, formacaoUsuario;
     await new Promise (resolve => 
         formInterface.question("Nome: ", nomeInput => 
-            resolve(nomeUsuario = nomeInput))
+            resolve(nomeUsuario = nomeInput.toLowerCase()))
     );
     await new Promise (resolve => 
         formInterface.question("Idade: ", idadeInput => 
@@ -42,19 +42,19 @@ const formulario = async () => {
     idadeUsuario = Number(idadeUsuario);
     await new Promise (resolve => 
         formInterface.question("Nacionalidade: ", nacionalidadeInput => 
-            resolve(nacionalidadeUsuario = nacionalidadeInput))
+            resolve(nacionalidadeUsuario = nacionalidadeInput.toLowerCase()))
     );
     await new Promise (resolve => 
         formInterface.question("Estado: ", estadoInput => 
-            resolve(estadoUsuario = estadoInput))
+            resolve(estadoUsuario = estadoInput.toLowerCase()))
     );
     await new Promise (resolve => 
         formInterface.question("Cidade: ", cidadeInput => 
-            resolve(cidadeUsuario = cidadeInput))
+            resolve(cidadeUsuario = cidadeInput.toLowerCase()))
     );
     await new Promise (resolve => 
         formInterface.question("Formação: ", formacaoInput => 
-            resolve(formacaoUsuario = formacaoInput))
+            resolve(formacaoUsuario = formacaoInput.toLowerCase()))
     );
     
     const informacoesUsuario = Object.assign({}, 
