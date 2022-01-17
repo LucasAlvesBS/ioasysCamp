@@ -11,7 +11,7 @@
 
 ## Proposta do Desafio
 
-- Nesse módulo, eu criei meu próprio código hadouken no arquivo (codigo-hadouken.js) e reduzi 
+- Nesse módulo, foi criado um código hadouken no arquivo (codigo-hadouken.js) e reduzido 
 no arquivo (solucao-hadouken.js) a quantidade de IFs para realizar a validação das informações em um
 pequeno banco de dados. Este foi criado através do objeto 'Map'. 
 
