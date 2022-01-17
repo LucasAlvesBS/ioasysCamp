@@ -69,7 +69,7 @@ const formulario = async () => {
     const pessoasRegistradas = nome => {
         if (JSON.stringify(informacoesUsuario) === JSON.stringify(bancoDeDados.get(nome = nomeUsuario))) {
             console.log("\nO usuário informado já consta no banco de dados.\n");
-        } else console.log("\nO usuário solicitado não foi encontrado no banco de dados.\n")
+        } else console.log("\nO usuário solicitado não foi encontrado no banco de dados.\n");
     }
     
     pessoasRegistradas();
@@ -79,7 +79,7 @@ const formulario = async () => {
                 ? formulario() 
                 : formInterface.close());
         })
-    )
+    );
 }
 
 formulario();
