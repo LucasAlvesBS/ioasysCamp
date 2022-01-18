@@ -4,9 +4,18 @@ const formInterface = readline.createInterface({
     output: process.stdout
 });
 
+function* colocaID() {
+    let index = 0;
+    while (true) {
+        yield index++;
+    }
+}
+
+const gen = colocaID();
+
 const bancoDeDados = new Map();
 
-bancoDeDados.set("lucas alves", {
+bancoDeDados.set(gen.next().value, {
     nome: "lucas alves",
     idade: 27,
     nacionalidade: "brasileira",
@@ -15,7 +24,7 @@ bancoDeDados.set("lucas alves", {
     formacao: "ioasyscamp"
 });
 
-bancoDeDados.set("alirio dos santos", {
+bancoDeDados.set(gen.next().value, {
     nome: "alirio dos santos",
     idade: 40,
     nacionalidade: "brasileira",
@@ -66,15 +75,18 @@ const formulario = async () => {
         {formacao: formacaoUsuario}
     )
     
-    const pessoasRegistradas = nome => {
-        if (JSON.stringify(informacoesUsuario) === JSON.stringify(bancoDeDados.get(nome = nomeUsuario))) {
-            console.log("\nO usuário informado já consta no banco de dados.\n");
-        } else console.log("\nO usuário solicitado não foi encontrado no banco de dados.\n");
-    }
+    let validacao;
+    for (let value of bancoDeDados.values()) {
+        if (JSON.stringify(informacoesUsuario) === JSON.stringify(value))
+            validacao = true;
+    } 
     
-    pessoasRegistradas();
+    validacao === true
+        ? console.log("\nO usuário informado já consta no banco de dados.\n")
+        : console.log("\nO usuário solicitado não foi encontrado no banco de dados.\n");
+    
     await new Promise(resolve => 
-        formInterface.question("Quer continuar? Caso positivo, digite 'sim': ", resposta => {
+        formInterface.question("Quer continuar? Caso positivo, digite 'sim' ou 's': ", resposta => {
             resolve(resposta.toLowerCase() === "sim" | resposta.toLowerCase() === "s"  
                 ? formulario() 
                 : formInterface.close());
