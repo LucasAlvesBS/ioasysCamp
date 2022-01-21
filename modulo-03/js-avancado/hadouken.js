@@ -30,12 +30,13 @@ const formValid = () => {
     const empty = check.find(value => value === true);
     
     if ((user.password !== user.confirmPassword)) {
-      console.log("[ 'password and confirmPassword do not match' ]");
+      const match = ["password and confirmPassword do not match"]
+      console.log(match);
     }
     
     if (empty === true || !utils.isEmail(user.email) || (user.password !== user.confirmPassword)
       || !utils.ageRange(user.age) || !utils.validName(user.name) || !utils.lengthPassword(user.password))
-          throw "\nUser invalid. Please, check the fields again."
+          throw "\nUser invalid. Please, check the fields again.\n"
     console.log("User valid!");
 
   } catch (e) {
