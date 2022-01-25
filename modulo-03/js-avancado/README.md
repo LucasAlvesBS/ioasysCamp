@@ -7,6 +7,8 @@ caso os campos obrigatórios estivessem vazios. Se mais de um campo estivesse, m
 quais campos estão vazios. Além disso, algumas outras restrições foram aplicadas como não poder utilizar números no nome, números
 negativos na idade, quantidades de caracteres inferiores a 8 ou superiores a 30 na senha, entre outras restrições. 
 
+Obs.: Os erros foram impressos em um único array.
+
 - Exemplo de um usuário que não preencheu os campos obrigatórios corretamente:
 
-![CAMPOS!](https://user-images.githubusercontent.com/91624733/150443596-065257ec-0b52-46ab-90be-7224ee329062.png)
+![CAMPOS!](https://user-images.githubusercontent.com/91624733/151079777-f31176b2-4f1f-4d15-b21d-37f7db67db18.png)
