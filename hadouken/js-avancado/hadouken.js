@@ -61,12 +61,15 @@ const formValid = () => {
   try {
 
     const errorMessages = [];
-    Object.keys(check).forEach(key => {
-      check[key].filter(value => {
-        if(value.checking)
-          return errorMessages.push(value.message)
+    Object.values(check).forEach(content => {
+      const errorCheck = content.filter(error => {
+        if (error.checking)
+          return error;
       })
-    });
+      
+      const messageDisplay = errorCheck.map(error => error.message)
+      errorMessages.push(...messageDisplay)
+  });
 
     if ((myUser.get("password") !== myUser.get("confirmPassword"))) {
       errorMessages.push("password and confirmPassword do not match")
