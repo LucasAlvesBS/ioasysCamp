@@ -1,6 +1,4 @@
 # ioasysCamp
 
-- Desafios realizados na trilha de Back-end.
-
-Para 'rodar' os códigos, é necessário adicionar o pacote 'readline'.
+- Desafios desenvolvidos na trilha de Back-end. Cada exercício possui um README especificando o seu objetivo. 
 
