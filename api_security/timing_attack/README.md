@@ -26,13 +26,12 @@ Terceiro, no caso de um usuário inválido com senha inválida:
 
 Isso acontece porque, no caso de um usuário válido, é necessário fazer o hash da senha, tornando o processo mais custoso.
 Diferentemente do que acontece no caso de um usuário inválido, já que assim que se identifica a inexistência, pula-se a
-etapa de construção da hash.
+etapa de comparação da hash.
 
 ## Então, qual seria uma possível solução?
 
 - A ideia pensada foi criar um hash de uma senha falsa. Como assim? No momento que o usuário não é identificado no sistema, ao invés de
-mandar direto uma mensagem informando-o, cria-se um hash da senha digitada para que o tempo de resposta seja equivalente ao tempo de 
-resposta de um usuário válido.
+mandar direto uma mensagem informando-o, cria-se um hash da senha digitada para que o tempo de resposta de um usuário inválido seja equivalente ao tempo de resposta de um usuário válido.
 
 As imagens abaixo ilustram o que foi explicado.
 
