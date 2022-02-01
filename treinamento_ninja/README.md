@@ -17,5 +17,5 @@ Obs.: Os atributos dos ninjas foram randomizados utilizando o 'Math.random()'.
 
 A imagem abaixo ilustra a tela inicial no terminal:
 
-![TREINAMENTO NINJA!](https://user-images.githubusercontent.com/91624733/151960328-e447eb83-46d0-488f-ad06-fc504629385f.png)
+![TREINAMENTONINJA!](https://user-images.githubusercontent.com/91624733/151960328-e447eb83-46d0-488f-ad06-fc504629385f.png)
 
