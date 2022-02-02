@@ -20,11 +20,37 @@ enum ScreenOptions {
     Atributos = 8
 }
 
-while (option != 9) {
-    if (hyuuga.hospitalizado())
+const estadoClinico = () => {
+    if (hyuuga.hospitalizado() && !uchiha.hospitalizado())
         throw `Chakra e/ou Resistência física abaixo de zero. ${hyuuga.nome} foi hospitalizado!`;
-    else if (uchiha.hospitalizado())
+    else if (uchiha.hospitalizado() && !hyuuga.hospitalizado())
         throw `Chakra e/ou Resistência física abaixo de zero. ${uchiha.nome} foi hospitalizado!`;
+    else if (hyuuga.hospitalizado() && uchiha.hospitalizado())
+        throw `Chakra e/ou Resistência física abaixo de zero. ${hyuuga.nome} e ${uchiha.nome} foram hospitalizados!`;
+}
+
+const vencedorCorrida = () => {
+    if (hyuuga.correr() > uchiha.correr())
+        console.log(`
+        Velocidade do ${hyuuga.nome}: ${hyuuga.velocidade.toFixed(1)} km/h
+        Velocidade do ${uchiha.nome}: ${uchiha.velocidade.toFixed(1)} km/h\n
+        ${hyuuga.nome} venceu!\n`);
+                 
+    else if (uchiha.correr() > hyuuga.correr())
+        console.log(`
+        Velocidade do ${uchiha.nome}: ${uchiha.velocidade.toFixed(1)} km/h
+        Velocidade do ${hyuuga.nome}: ${hyuuga.velocidade.toFixed(1)} km/h\n
+        ${uchiha.nome} venceu!\n`);
+
+    else
+        console.log(`
+        Velocidade do ${uchiha.nome}: ${uchiha.velocidade.toFixed(1)} km/h
+        Velocidade do ${hyuuga.nome}: ${hyuuga.velocidade.toFixed(1)} km/h\n
+        Empate!\n`);
+}
+
+while (option != 9) {
+    estadoClinico();
     
     console.log(`+========= Treinamento Ninja ==========+`);
     console.log("1. Treinar taijutsu                    |");
@@ -63,16 +89,7 @@ while (option != 9) {
             console.log(uchiha.descansar(tempo));
             break;
         case ScreenOptions.Corrida:
-            if (hyuuga.correr() > uchiha.correr())
-                console.log(`
-                Velocidade do ${hyuuga.nome}: ${hyuuga.velocidade.toFixed(1)} km/h
-                Velocidade do ${uchiha.nome}: ${uchiha.velocidade.toFixed(1)} km/h\n
-                ${hyuuga.nome} venceu!\n`);
-                 
-            else console.log(`
-                Velocidade do ${uchiha.nome}: ${uchiha.velocidade.toFixed(1)} km/h
-                Velocidade do ${hyuuga.nome}: ${hyuuga.velocidade.toFixed(1)} km/h\n
-                ${uchiha.nome} venceu!\n`);
+            vencedorCorrida();
             break;
         case ScreenOptions.TecnicaSecreta:
             console.log(hyuuga.atacar()); 

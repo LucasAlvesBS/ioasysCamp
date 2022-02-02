@@ -1,4 +1,4 @@
-export default class Util {
+export default class Utils {
     public static definirAtributos(inicio: number, fim: number): number {
         return inicio + Math.random() * (fim - inicio);
     }

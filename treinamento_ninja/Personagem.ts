@@ -1,4 +1,4 @@
-import Util from "./Util";
+import Utils from "./Utils";
 
 export default class Personagem {
     protected _nome: string; 
@@ -11,9 +11,9 @@ export default class Personagem {
     
     constructor(nome: string) {
         this._nome = nome;
-        this._taijutsu = Util.definirAtributos(10, 100);
-        this._ninjutsu = Util.definirAtributos(10, 100);
-        this._genjutsu = Util.definirAtributos(10, 100);
+        this._taijutsu = Utils.definirAtributos(10, 100);
+        this._ninjutsu = Utils.definirAtributos(10, 100);
+        this._genjutsu = Utils.definirAtributos(10, 100);
         this._resistenciaFisica = 1_000;
         this._chakra = 1_000;
         this._velocidade = 0;
@@ -47,8 +47,8 @@ Ninja:
     } 
 
     public treinarTaijutsu(): string {
-        let aumentarTaijutsu = this.randomizar(30);
-        let diminuirRestencia = this.randomizar(20);
+        let aumentarTaijutsu = Utils.definirAtributos(25, 35);
+        let diminuirRestencia = Utils.definirAtributos(15, 25);
         this._taijutsu += aumentarTaijutsu;
         this._resistenciaFisica -= diminuirRestencia
         if (this._taijutsu > 1_000)
@@ -58,9 +58,9 @@ Ninja:
     }
 
     public treinarNinjutsu(): string {
-        let aumentarNinjutsu = this.randomizar(24);
-        let diminuirRestencia = this.randomizar(10);
-        let diminuirChakra = this.randomizar(20);
+        let aumentarNinjutsu = Utils.definirAtributos(20, 25);
+        let diminuirRestencia = Utils.definirAtributos(8, 12);
+        let diminuirChakra = Utils.definirAtributos(18, 22);
         this._ninjutsu += aumentarNinjutsu;
         this._resistenciaFisica -= diminuirRestencia;
         this._chakra -= diminuirChakra;
@@ -71,8 +71,8 @@ Ninja:
     }
 
     public treinarGenjutsu(): string {
-        let aumentarGenjutsu = this.randomizar(20);
-        let diminuirChakra = this.randomizar(16);
+        let aumentarGenjutsu = Utils.definirAtributos(18, 22);
+        let diminuirChakra = Utils.definirAtributos(13, 17);
         this._genjutsu += aumentarGenjutsu;
         this._chakra -= diminuirChakra;
         if (this._genjutsu > 1_000)
@@ -82,8 +82,8 @@ Ninja:
     }
 
     public batalhar(): string {
-        let diminuirRestencia = this.randomizar(100);
-        let diminuirChakra = this.randomizar(100);
+        let diminuirRestencia = Utils.definirAtributos(100, 150);
+        let diminuirChakra = Utils.definirAtributos(100, 150);
         this._resistenciaFisica -= diminuirRestencia;
         this._chakra -= diminuirChakra;
         return `\nNa batalha, ${this.nome} gastou ${diminuirRestencia.toFixed(1)} de Resistência Física 
@@ -91,8 +91,8 @@ Ninja:
     }
 
     public descansar(horas: number): string {
-        let recuperarFisico = horas * this.randomizar(15);
-        let recuperarChakra = horas * this.randomizar(10);
+        let recuperarFisico = horas * Utils.definirAtributos(10, 20);
+        let recuperarChakra = horas * Utils.definirAtributos(8, 12);
         this._resistenciaFisica += recuperarFisico;
         this._chakra += recuperarChakra;
         if (this._resistenciaFisica > 1_000)
@@ -104,7 +104,7 @@ Ninja:
     }
 
     public correr(): number {
-        return this._velocidade = Util.definirAtributos(15, 50);
+        return this._velocidade = Utils.definirAtributos(15, 50);
     }
 
     public atacar(): string {
@@ -113,9 +113,5 @@ Ninja:
 
     public hospitalizado(): boolean {
         return this._chakra < 0 || this._resistenciaFisica < 0;
-    }
-
-    protected randomizar(fator: number): number {
-        return Math.random() * fator;
     }
 }
