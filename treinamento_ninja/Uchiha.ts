@@ -1,5 +1,5 @@
 import Personagem from "./Personagem";
-import Utils from "./Utils";
+import Random from "./Random";
 
 export default class Uchiha extends Personagem {
     private _sharingan: number; 
@@ -7,10 +7,10 @@ export default class Uchiha extends Personagem {
     constructor(nome: string) {
         super(nome);
         this._nome = nome;
-        this._taijutsu = Utils.definirAtributos(50, 250);
-        this._ninjutsu = Utils.definirAtributos(100, 1_000);
-        this._genjutsu = Utils.definirAtributos(300, 500);
-        this._sharingan = Utils.definirAtributos(100, 1_000);
+        this._taijutsu = Random.definirAtributos(50, 250);
+        this._ninjutsu = Random.definirAtributos(100, 1_000);
+        this._genjutsu = Random.definirAtributos(300, 500);
+        this._sharingan = Random.definirAtributos(100, 1_000);
     }
 
     public status(): string {
@@ -29,8 +29,8 @@ Ninja:
     } 
 
     public atacar(): string {
-        let diminuirRestencia = Utils.definirAtributos(300, 500);
-        let diminuirChakra = Utils.definirAtributos(500, 800);
+        let diminuirRestencia = Random.definirAtributos(300, 500);
+        let diminuirChakra = Random.definirAtributos(500, 800);
         this._resistenciaFisica -= diminuirRestencia;
         this._chakra -= diminuirChakra;
         return `\nSharingan - Chidori com força de ${this._sharingan.toFixed(1)}

@@ -1,6 +1,6 @@
-import Utils from "./Utils";
+import Random from "./Random";
 
-export default class Personagem {
+export default abstract class Personagem {
     protected _nome: string; 
     protected _taijutsu: number;
     protected _ninjutsu: number;
@@ -8,12 +8,14 @@ export default class Personagem {
     protected _resistenciaFisica: number;
     protected _chakra: number;
     protected _velocidade: number;
-    
+    public abstract status(): string;
+    public abstract atacar(): string;
+
     constructor(nome: string) {
         this._nome = nome;
-        this._taijutsu = Utils.definirAtributos(10, 100);
-        this._ninjutsu = Utils.definirAtributos(10, 100);
-        this._genjutsu = Utils.definirAtributos(10, 100);
+        this._taijutsu = Random.definirAtributos(10, 100);
+        this._ninjutsu = Random.definirAtributos(10, 100);
+        this._genjutsu = Random.definirAtributos(10, 100);
         this._resistenciaFisica = 1_000;
         this._chakra = 1_000;
         this._velocidade = 0;
@@ -31,24 +33,9 @@ export default class Personagem {
         return this._velocidade;
     }
 
-    public status(): string {
-        return (
-            `
-Ninja:
-
-    Nome: ${this._nome}
-    Taijutsu: ${this._taijutsu.toFixed(1)} 
-    Ninjutsu: ${this._ninjutsu.toFixed(1)} 
-    Genjutsu: ${this._genjutsu.toFixed(1)}
-    Resistência Física: ${this._resistenciaFisica.toFixed(1)} 
-    Chakra: ${this._chakra.toFixed(1)} 
-    Velocidade na última corrida: ${this._velocidade.toFixed(1)} km/h`
-        );
-    } 
-
     public treinarTaijutsu(): string {
-        let aumentarTaijutsu = Utils.definirAtributos(25, 35);
-        let diminuirRestencia = Utils.definirAtributos(15, 25);
+        let aumentarTaijutsu = Random.definirAtributos(25, 35);
+        let diminuirRestencia = Random.definirAtributos(15, 25);
         this._taijutsu += aumentarTaijutsu;
         this._resistenciaFisica -= diminuirRestencia
         if (this._taijutsu > 1_000)
@@ -58,9 +45,9 @@ Ninja:
     }
 
     public treinarNinjutsu(): string {
-        let aumentarNinjutsu = Utils.definirAtributos(20, 25);
-        let diminuirRestencia = Utils.definirAtributos(8, 12);
-        let diminuirChakra = Utils.definirAtributos(18, 22);
+        let aumentarNinjutsu = Random.definirAtributos(20, 25);
+        let diminuirRestencia = Random.definirAtributos(8, 12);
+        let diminuirChakra = Random.definirAtributos(18, 22);
         this._ninjutsu += aumentarNinjutsu;
         this._resistenciaFisica -= diminuirRestencia;
         this._chakra -= diminuirChakra;
@@ -71,8 +58,8 @@ Ninja:
     }
 
     public treinarGenjutsu(): string {
-        let aumentarGenjutsu = Utils.definirAtributos(18, 22);
-        let diminuirChakra = Utils.definirAtributos(13, 17);
+        let aumentarGenjutsu = Random.definirAtributos(18, 22);
+        let diminuirChakra = Random.definirAtributos(13, 17);
         this._genjutsu += aumentarGenjutsu;
         this._chakra -= diminuirChakra;
         if (this._genjutsu > 1_000)
@@ -82,8 +69,8 @@ Ninja:
     }
 
     public batalhar(): string {
-        let diminuirRestencia = Utils.definirAtributos(100, 150);
-        let diminuirChakra = Utils.definirAtributos(100, 150);
+        let diminuirRestencia = Random.definirAtributos(100, 150);
+        let diminuirChakra = Random.definirAtributos(100, 150);
         this._resistenciaFisica -= diminuirRestencia;
         this._chakra -= diminuirChakra;
         return `\nNa batalha, ${this.nome} gastou ${diminuirRestencia.toFixed(1)} de Resistência Física 
@@ -91,8 +78,8 @@ Ninja:
     }
 
     public descansar(horas: number): string {
-        let recuperarFisico = horas * Utils.definirAtributos(10, 20);
-        let recuperarChakra = horas * Utils.definirAtributos(8, 12);
+        let recuperarFisico = horas * Random.definirAtributos(10, 20);
+        let recuperarChakra = horas * Random.definirAtributos(8, 12);
         this._resistenciaFisica += recuperarFisico;
         this._chakra += recuperarChakra;
         if (this._resistenciaFisica > 1_000)
@@ -104,14 +91,10 @@ Ninja:
     }
 
     public correr(): number {
-        return this._velocidade = Utils.definirAtributos(15, 50);
+        return this._velocidade = Random.definirAtributos(15, 50);
     }
 
-    public atacar(): string {
-        return "Jogar shurikens";
-    }
-
-    public hospitalizado(): boolean {
+    public machucarSe(): boolean {
         return this._chakra < 0 || this._resistenciaFisica < 0;
     }
 }

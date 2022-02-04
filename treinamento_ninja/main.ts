@@ -21,11 +21,11 @@ enum ScreenOptions {
 }
 
 const estadoClinico = () => {
-    if (hyuuga.hospitalizado() && !uchiha.hospitalizado())
+    if (hyuuga.machucarSe() && !uchiha.machucarSe())
         throw `Chakra e/ou Resistência física abaixo de zero. ${hyuuga.nome} foi hospitalizado!`;
-    else if (uchiha.hospitalizado() && !hyuuga.hospitalizado())
+    else if (uchiha.machucarSe() && !hyuuga.machucarSe())
         throw `Chakra e/ou Resistência física abaixo de zero. ${uchiha.nome} foi hospitalizado!`;
-    else if (hyuuga.hospitalizado() && uchiha.hospitalizado())
+    else if (hyuuga.machucarSe() && uchiha.machucarSe())
         throw `Chakra e/ou Resistência física abaixo de zero. ${hyuuga.nome} e ${uchiha.nome} foram hospitalizados!`;
 }
 
