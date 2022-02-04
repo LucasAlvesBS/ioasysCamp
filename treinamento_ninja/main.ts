@@ -20,7 +20,7 @@ enum ScreenOptions {
     Atributos = 8
 }
 
-const estadoClinico = () => {
+const hospitalizar = () => {
     if (hyuuga.machucarSe() && !uchiha.machucarSe())
         throw `Chakra e/ou Resistência física abaixo de zero. ${hyuuga.nome} foi hospitalizado!`;
     else if (uchiha.machucarSe() && !hyuuga.machucarSe())
@@ -50,7 +50,7 @@ const vencedorCorrida = () => {
 }
 
 while (option != 9) {
-    estadoClinico();
+    hospitalizar();
     
     console.log(`+========= Treinamento Ninja ==========+`);
     console.log("1. Treinar taijutsu                    |");
