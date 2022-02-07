@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { UsersEntity } from 'src/app/users/users.entity';
 import { UsersService } from 'src/app/users/users.service';
-import { compareSync } from 'bcrypt';
+import { compareSync, hashSync } from 'bcrypt';
 import { JwtService } from '@nestjs/jwt';
 
 @Injectable()
@@ -24,6 +24,7 @@ export class AuthService {
     try {
       user = await this.userService.findOneOrFail({ email });
     } catch (error) {
+      hashSync(password, 10);
       return null;
     }
 
